@@ -1,0 +1,103 @@
+# Importing the data
+
+In this chapter, we will import the data using the package IOHAnalyzer and the data available in the repositories below.
+
+* https://github.com/IOHprofiler/IOHdata for the PBO dataset
+* https://numbbo.github.io/data-archive/bbob/ for the BBOB 2019 and 2009
+
+The processed data from this chapter is available in the folder data of the repository https://github.com/davidissamattos/evo-irt
+
+```{r message=F}
+library(IOHanalyzer)
+```
+
+To import this data, we use the function below to convert to csv format for easier analysis.
+
+This gives a summarized values of the number of runs and the number of succeeded runs.
+
+```{r}
+import_data <- function(location, folder=F){
+  #dsl is a datasetlist from IOHanalyzer
+  if(folder==T)
+    dsl <- DataSetList(location)
+  else
+    dsl<- readRDS(location)
+  #each dataset is an element of this list, e.g. dsl[[1]]
+  #each dataset is a list with three items RT (runtime value for fixed target) FV (function value for fixed budget) and PAR (parameters)
+  ds_list_fv <- lapply(dsl,get_FV_overview)
+  ds_list_rt <- lapply(dsl,get_RT_overview)
+  fv <- do.call(rbind,ds_list_fv)
+  rt <- do.call(rbind,ds_list_rt)
+  out <- list(rt=rt,
+             fv=fv)
+  }
+```
+
+## PBO dataset
+
+The IOHData repository already has some benchmarks in the RDS format which we will use here.
+
+```{r eval=F}
+d_pbo <- import_data('data/IOHdata-master/iohprofiler/2019gecco-ins11-1run.rds', folder = F)
+d_pbo_fv <- d_pbo$fv
+d_pbo_fv$succ <- d_pbo_fv$succ %>% 
+  replace_na(0)
+write_csv(d_pbo_fv,'data/pbo.csv')
+```
+
+## BBOB 2019
+
+Import folder
+```{r eval=F}
+d_bbob1 <- import_data('data/BBOB/Adaptive-Two-Mode_bbob_Bodner/', folder = T)
+d_bbob2 <- import_data('data/BBOB/adapt-Nelder-Mead-scipy-2019_bbob_Varelas_Dahito/', folder = T)
+d_bbob3 <- import_data('data/BBOB/BFGS-scipy-2019_bbob_Varelas_Dahito/minimize_on_bbob_budget100000xD/', folder = T)
+d_bbob4 <- import_data('data/BBOB/CG-scipy-2019_bbob_Varelas_Dahito/', folder = T)
+d_bbob5 <- import_data('data/BBOB/COBYLA-scipy-2019_bbob_Varelas_Dahito/', folder = T)
+d_bbob6 <- import_data('data/BBOB/DE-scipy-2019_bbob_Varelas_Dahito/', folder = T)
+d_bbob7 <- import_data('data/BBOB/L-BFGS-B-scipy-2019_bbob_Varelas_Dahito/', folder = T)
+d_bbob8 <- import_data('data/BBOB/Nelder-Mead-scipy-2019_bbob_Varelas_Dahito/', folder = T)
+d_bbob9 <- import_data('data/BBOB/Powell-scipy-2019_bbob_Varelas_Dahito/', folder = T)
+d_bbob10 <- import_data('data/BBOB/RS-4-initIn0_bbob_Brockhoff_Hansen/', folder = T)
+d_bbob11 <- import_data('data/BBOB/RS-5-initIn0_bbob_Brockhoff_Hansen/', folder = T)
+d_bbob12 <- import_data('data/BBOB/RS-6-initIn0_bbob_Brockhoff_Hansen/', folder = T)
+d_bbob13 <- import_data('data/BBOB/TNC-scipy-2019_bbob_Varelas_Dahito/', folder = T)
+```
+
+Now we merge these datasets into a single one
+```{r eval=F}
+d_bbob <- rbind(d_bbob1$fv,
+                d_bbob2$fv,
+                d_bbob3$fv,
+                d_bbob4$fv,
+                d_bbob5$fv,
+                d_bbob6$fv,
+                d_bbob7$fv,
+                d_bbob8$fv,
+                d_bbob9$fv,
+                d_bbob10$fv,
+                d_bbob11$fv,
+                d_bbob12$fv,
+                d_bbob13$fv
+                )
+#NA in succ will become 0
+d_bbob$succ <- d_bbob$succ %>% 
+  replace_na(0)
+write_csv(d_bbob,'data/bbob2019.csv')
+```
+
+## BBOB 2009
+
+```{r eval=F}
+bbob_2009_dirs <- list.dirs(path = "data/BBOB2009", full.names = TRUE, recursive = F)
+bbob2009<-NULL
+for(i in seq(1:length(bbob_2009_dirs))){
+  d <- import_data(bbob_2009_dirs[i], folder = T)
+  bbob2009 <- rbind(bbob2009,d$fv)
+}
+bbob2009$succ <- bbob2009$succ %>% 
+  replace_na(0)
+
+write_csv(bbob2009,'data/bbob2009.csv')
+```
+

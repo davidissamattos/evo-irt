@@ -1,0 +1,1362 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 7 Extra II: PBO 625 dimensions | Online appendix for the paper: “On the Assessment of Benchmark Suites for Algorithm Comparison”</title>
+  <meta name="description" content="This is the online appendix for the paper: “On the Assessment of Benchmark Suites for Algorithm Comparison”" />
+  <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 7 Extra II: PBO 625 dimensions | Online appendix for the paper: “On the Assessment of Benchmark Suites for Algorithm Comparison”" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="This is the online appendix for the paper: “On the Assessment of Benchmark Suites for Algorithm Comparison”" />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 7 Extra II: PBO 625 dimensions | Online appendix for the paper: “On the Assessment of Benchmark Suites for Algorithm Comparison”" />
+  
+  <meta name="twitter:description" content="This is the online appendix for the paper: “On the Assessment of Benchmark Suites for Algorithm Comparison”" />
+  
+
+<meta name="author" content="David Issa Mattos, Lucas Ruud, Jan Bosch and Helena Holmström Olsson." />
+
+
+<meta name="date" content="2021-04-15" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="extra-i-bbob-2009-and-2019.html"/>
+
+<script src="libs/header-attrs-2.6/header-attrs.js"></script>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<script src="libs/kePrint-0.0.1/kePrint.js"></script>
+<link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Foreword</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#session-info"><i class="fa fa-check"></i><b>1.1</b> Session info</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="importing-the-data.html"><a href="importing-the-data.html"><i class="fa fa-check"></i><b>2</b> Importing the data</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="importing-the-data.html"><a href="importing-the-data.html#pbo-dataset"><i class="fa fa-check"></i><b>2.1</b> PBO dataset</a></li>
+<li class="chapter" data-level="2.2" data-path="importing-the-data.html"><a href="importing-the-data.html#bbob-2019"><i class="fa fa-check"></i><b>2.2</b> BBOB 2019</a></li>
+<li class="chapter" data-level="2.3" data-path="importing-the-data.html"><a href="importing-the-data.html#bbob-2009"><i class="fa fa-check"></i><b>2.3</b> BBOB 2009</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="irt-stan.html"><a href="irt-stan.html"><i class="fa fa-check"></i><b>3</b> IRT Stan</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="irt-stan.html"><a href="irt-stan.html#pl-model"><i class="fa fa-check"></i><b>3.1</b> 2PL model</a>
+<ul>
+<li class="chapter" data-level="3.1.1" data-path="irt-stan.html"><a href="irt-stan.html#impact-of-item-difficulty"><i class="fa fa-check"></i><b>3.1.1</b> Impact of item difficulty</a></li>
+<li class="chapter" data-level="3.1.2" data-path="irt-stan.html"><a href="irt-stan.html#impact-of-item-discrimination"><i class="fa fa-check"></i><b>3.1.2</b> Impact of item discrimination</a></li>
+<li class="chapter" data-level="3.1.3" data-path="irt-stan.html"><a href="irt-stan.html#item-information"><i class="fa fa-check"></i><b>3.1.3</b> Item Information</a></li>
+<li class="chapter" data-level="3.1.4" data-path="irt-stan.html"><a href="irt-stan.html#test-information"><i class="fa fa-check"></i><b>3.1.4</b> Test information</a></li>
+</ul></li>
+<li class="chapter" data-level="3.2" data-path="irt-stan.html"><a href="irt-stan.html#bayesian-2pl-with-multiple-attempts"><i class="fa fa-check"></i><b>3.2</b> Bayesian 2PL with multiple attempts</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="case-study-i-bbob-2019.html"><a href="case-study-i-bbob-2019.html"><i class="fa fa-check"></i><b>4</b> Case Study I: BBOB 2019</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="case-study-i-bbob-2019.html"><a href="case-study-i-bbob-2019.html#importing-the-data-1"><i class="fa fa-check"></i><b>4.1</b> Importing the data</a></li>
+<li class="chapter" data-level="4.2" data-path="case-study-i-bbob-2019.html"><a href="case-study-i-bbob-2019.html#preparing-the-stan-data"><i class="fa fa-check"></i><b>4.2</b> Preparing the Stan data</a></li>
+<li class="chapter" data-level="4.3" data-path="case-study-i-bbob-2019.html"><a href="case-study-i-bbob-2019.html#diagnostics"><i class="fa fa-check"></i><b>4.3</b> Diagnostics</a>
+<ul>
+<li class="chapter" data-level="4.3.1" data-path="case-study-i-bbob-2019.html"><a href="case-study-i-bbob-2019.html#traceplots"><i class="fa fa-check"></i><b>4.3.1</b> Traceplots</a></li>
+<li class="chapter" data-level="4.3.2" data-path="case-study-i-bbob-2019.html"><a href="case-study-i-bbob-2019.html#rhat-and-effective-samples"><i class="fa fa-check"></i><b>4.3.2</b> Rhat and Effective samples</a></li>
+</ul></li>
+<li class="chapter" data-level="4.4" data-path="case-study-i-bbob-2019.html"><a href="case-study-i-bbob-2019.html#results"><i class="fa fa-check"></i><b>4.4</b> Results</a>
+<ul>
+<li class="chapter" data-level="4.4.1" data-path="case-study-i-bbob-2019.html"><a href="case-study-i-bbob-2019.html#difficulty-and-discrimination"><i class="fa fa-check"></i><b>4.4.1</b> Difficulty and discrimination</a></li>
+<li class="chapter" data-level="4.4.2" data-path="case-study-i-bbob-2019.html"><a href="case-study-i-bbob-2019.html#ability"><i class="fa fa-check"></i><b>4.4.2</b> Ability</a></li>
+<li class="chapter" data-level="4.4.3" data-path="case-study-i-bbob-2019.html"><a href="case-study-i-bbob-2019.html#item-information-1"><i class="fa fa-check"></i><b>4.4.3</b> Item information</a></li>
+<li class="chapter" data-level="4.4.4" data-path="case-study-i-bbob-2019.html"><a href="case-study-i-bbob-2019.html#test-information-1"><i class="fa fa-check"></i><b>4.4.4</b> Test information</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="case-study-ii-pbo.html"><a href="case-study-ii-pbo.html"><i class="fa fa-check"></i><b>5</b> Case study II: PBO</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="case-study-ii-pbo.html"><a href="case-study-ii-pbo.html#importing-the-data-2"><i class="fa fa-check"></i><b>5.1</b> Importing the data</a></li>
+<li class="chapter" data-level="5.2" data-path="case-study-ii-pbo.html"><a href="case-study-ii-pbo.html#preparing-the-stan-data-1"><i class="fa fa-check"></i><b>5.2</b> Preparing the Stan data</a></li>
+<li class="chapter" data-level="5.3" data-path="case-study-ii-pbo.html"><a href="case-study-ii-pbo.html#diagnostics-1"><i class="fa fa-check"></i><b>5.3</b> Diagnostics</a>
+<ul>
+<li class="chapter" data-level="5.3.1" data-path="case-study-ii-pbo.html"><a href="case-study-ii-pbo.html#traceplots-1"><i class="fa fa-check"></i><b>5.3.1</b> Traceplots</a></li>
+<li class="chapter" data-level="5.3.2" data-path="case-study-ii-pbo.html"><a href="case-study-ii-pbo.html#rhat-and-effective-samples-1"><i class="fa fa-check"></i><b>5.3.2</b> Rhat and Effective samples</a></li>
+</ul></li>
+<li class="chapter" data-level="5.4" data-path="case-study-ii-pbo.html"><a href="case-study-ii-pbo.html#results-1"><i class="fa fa-check"></i><b>5.4</b> Results</a>
+<ul>
+<li class="chapter" data-level="5.4.1" data-path="case-study-ii-pbo.html"><a href="case-study-ii-pbo.html#difficulty-and-discrimination-1"><i class="fa fa-check"></i><b>5.4.1</b> Difficulty and discrimination</a></li>
+<li class="chapter" data-level="5.4.2" data-path="case-study-ii-pbo.html"><a href="case-study-ii-pbo.html#ability-1"><i class="fa fa-check"></i><b>5.4.2</b> Ability</a></li>
+<li class="chapter" data-level="5.4.3" data-path="case-study-ii-pbo.html"><a href="case-study-ii-pbo.html#item-information-2"><i class="fa fa-check"></i><b>5.4.3</b> Item information</a></li>
+<li class="chapter" data-level="5.4.4" data-path="case-study-ii-pbo.html"><a href="case-study-ii-pbo.html#test-information-2"><i class="fa fa-check"></i><b>5.4.4</b> Test information</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="extra-i-bbob-2009-and-2019.html"><a href="extra-i-bbob-2009-and-2019.html"><i class="fa fa-check"></i><b>6</b> Extra I: BBOB 2009 and 2019</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="extra-i-bbob-2009-and-2019.html"><a href="extra-i-bbob-2009-and-2019.html#importing-the-data-3"><i class="fa fa-check"></i><b>6.1</b> Importing the data</a></li>
+<li class="chapter" data-level="6.2" data-path="extra-i-bbob-2009-and-2019.html"><a href="extra-i-bbob-2009-and-2019.html#preparing-the-stan-data-2"><i class="fa fa-check"></i><b>6.2</b> Preparing the Stan data</a></li>
+<li class="chapter" data-level="6.3" data-path="extra-i-bbob-2009-and-2019.html"><a href="extra-i-bbob-2009-and-2019.html#diagnostics-2"><i class="fa fa-check"></i><b>6.3</b> Diagnostics</a>
+<ul>
+<li class="chapter" data-level="6.3.1" data-path="extra-i-bbob-2009-and-2019.html"><a href="extra-i-bbob-2009-and-2019.html#traceplots-2"><i class="fa fa-check"></i><b>6.3.1</b> Traceplots</a></li>
+</ul></li>
+<li class="chapter" data-level="6.4" data-path="extra-i-bbob-2009-and-2019.html"><a href="extra-i-bbob-2009-and-2019.html#results-2"><i class="fa fa-check"></i><b>6.4</b> Results</a>
+<ul>
+<li class="chapter" data-level="6.4.1" data-path="extra-i-bbob-2009-and-2019.html"><a href="extra-i-bbob-2009-and-2019.html#difficulty-and-discrimination-2"><i class="fa fa-check"></i><b>6.4.1</b> Difficulty and discrimination</a></li>
+<li class="chapter" data-level="6.4.2" data-path="extra-i-bbob-2009-and-2019.html"><a href="extra-i-bbob-2009-and-2019.html#ability-2"><i class="fa fa-check"></i><b>6.4.2</b> Ability</a></li>
+<li class="chapter" data-level="6.4.3" data-path="extra-i-bbob-2009-and-2019.html"><a href="extra-i-bbob-2009-and-2019.html#item-information-3"><i class="fa fa-check"></i><b>6.4.3</b> Item information</a></li>
+<li class="chapter" data-level="6.4.4" data-path="extra-i-bbob-2009-and-2019.html"><a href="extra-i-bbob-2009-and-2019.html#test-information-3"><i class="fa fa-check"></i><b>6.4.4</b> Test information</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="extra-ii-pbo-625-dimensions.html"><a href="extra-ii-pbo-625-dimensions.html"><i class="fa fa-check"></i><b>7</b> Extra II: PBO 625 dimensions</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="extra-ii-pbo-625-dimensions.html"><a href="extra-ii-pbo-625-dimensions.html#importing-the-data-4"><i class="fa fa-check"></i><b>7.1</b> Importing the data</a></li>
+<li class="chapter" data-level="7.2" data-path="extra-ii-pbo-625-dimensions.html"><a href="extra-ii-pbo-625-dimensions.html#preparing-the-stan-data-3"><i class="fa fa-check"></i><b>7.2</b> Preparing the Stan data</a></li>
+<li class="chapter" data-level="7.3" data-path="extra-ii-pbo-625-dimensions.html"><a href="extra-ii-pbo-625-dimensions.html#diagnostics-3"><i class="fa fa-check"></i><b>7.3</b> Diagnostics</a>
+<ul>
+<li class="chapter" data-level="7.3.1" data-path="extra-ii-pbo-625-dimensions.html"><a href="extra-ii-pbo-625-dimensions.html#traceplots-3"><i class="fa fa-check"></i><b>7.3.1</b> Traceplots</a></li>
+</ul></li>
+<li class="chapter" data-level="7.4" data-path="extra-ii-pbo-625-dimensions.html"><a href="extra-ii-pbo-625-dimensions.html#results-3"><i class="fa fa-check"></i><b>7.4</b> Results</a>
+<ul>
+<li class="chapter" data-level="7.4.1" data-path="extra-ii-pbo-625-dimensions.html"><a href="extra-ii-pbo-625-dimensions.html#difficulty-and-discrimination-3"><i class="fa fa-check"></i><b>7.4.1</b> Difficulty and discrimination</a></li>
+<li class="chapter" data-level="7.4.2" data-path="extra-ii-pbo-625-dimensions.html"><a href="extra-ii-pbo-625-dimensions.html#ability-3"><i class="fa fa-check"></i><b>7.4.2</b> Ability</a></li>
+<li class="chapter" data-level="7.4.3" data-path="extra-ii-pbo-625-dimensions.html"><a href="extra-ii-pbo-625-dimensions.html#item-information-4"><i class="fa fa-check"></i><b>7.4.3</b> Item information</a></li>
+<li class="chapter" data-level="7.4.4" data-path="extra-ii-pbo-625-dimensions.html"><a href="extra-ii-pbo-625-dimensions.html#test-information-4"><i class="fa fa-check"></i><b>7.4.4</b> Test information</a></li>
+</ul></li>
+</ul></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Online appendix for the paper: “On the Assessment of Benchmark Suites for Algorithm Comparison”</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="extra-ii-pbo-625-dimensions" class="section level1" number="7">
+<h1><span class="header-section-number">Chapter 7</span> Extra II: PBO 625 dimensions</h1>
+<div id="importing-the-data-4" class="section level2" number="7.1">
+<h2><span class="header-section-number">7.1</span> Importing the data</h2>
+<p>To illustrate and make the analysis we will use 5 as the number of dimensions for the benchmark functions</p>
+<div class="sourceCode" id="cb90"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb90-1"><a href="extra-ii-pbo-625-dimensions.html#cb90-1" aria-hidden="true" tabindex="-1"></a>d_pbo <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&#39;data/pbo.csv&#39;</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb90-2"><a href="extra-ii-pbo-625-dimensions.html#cb90-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(algId, DIM, funcId, runs, succ, budget) <span class="sc">%&gt;%</span> </span>
+<span id="cb90-3"><a href="extra-ii-pbo-625-dimensions.html#cb90-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(DIM<span class="sc">==</span><span class="dv">625</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb90-4"><a href="extra-ii-pbo-625-dimensions.html#cb90-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">algId_index =</span> <span class="fu">as.integer</span>(<span class="fu">as.factor</span>(algId)))</span>
+<span id="cb90-5"><a href="extra-ii-pbo-625-dimensions.html#cb90-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb90-6"><a href="extra-ii-pbo-625-dimensions.html#cb90-6" aria-hidden="true" tabindex="-1"></a><span class="co">#vector with the names in order</span></span>
+<span id="cb90-7"><a href="extra-ii-pbo-625-dimensions.html#cb90-7" aria-hidden="true" tabindex="-1"></a>benchmarks <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="dv">1</span>,<span class="dv">23</span>)</span>
+<span id="cb90-8"><a href="extra-ii-pbo-625-dimensions.html#cb90-8" aria-hidden="true" tabindex="-1"></a>algorithms <span class="ot">&lt;-</span> <span class="fu">levels</span>(<span class="fu">as.factor</span>(d_pbo<span class="sc">$</span>algId))</span></code></pre></div>
+</div>
+<div id="preparing-the-stan-data-3" class="section level2" number="7.2">
+<h2><span class="header-section-number">7.2</span> Preparing the Stan data</h2>
+<div class="sourceCode" id="cb91"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb91-1"><a href="extra-ii-pbo-625-dimensions.html#cb91-1" aria-hidden="true" tabindex="-1"></a>pbo_standata <span class="ot">&lt;-</span> <span class="fu">list</span>(</span>
+<span id="cb91-2"><a href="extra-ii-pbo-625-dimensions.html#cb91-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">N =</span> <span class="fu">nrow</span>(d_pbo),</span>
+<span id="cb91-3"><a href="extra-ii-pbo-625-dimensions.html#cb91-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">y_succ =</span> <span class="fu">as.integer</span>(d_pbo<span class="sc">$</span>succ),</span>
+<span id="cb91-4"><a href="extra-ii-pbo-625-dimensions.html#cb91-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">N_tries =</span> <span class="fu">as.integer</span>(d_pbo<span class="sc">$</span>runs),</span>
+<span id="cb91-5"><a href="extra-ii-pbo-625-dimensions.html#cb91-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">p =</span> d_pbo<span class="sc">$</span>algId_index,</span>
+<span id="cb91-6"><a href="extra-ii-pbo-625-dimensions.html#cb91-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">Np =</span> <span class="fu">as.integer</span>(<span class="fu">length</span>(<span class="fu">unique</span>(d_pbo<span class="sc">$</span>algId_index))),</span>
+<span id="cb91-7"><a href="extra-ii-pbo-625-dimensions.html#cb91-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">item =</span> <span class="fu">as.integer</span>(d_pbo<span class="sc">$</span>funcId),</span>
+<span id="cb91-8"><a href="extra-ii-pbo-625-dimensions.html#cb91-8" aria-hidden="true" tabindex="-1"></a>  <span class="at">Nitem =</span> <span class="fu">as.integer</span>(<span class="fu">length</span>(<span class="fu">unique</span>(d_pbo<span class="sc">$</span>funcId)))</span>
+<span id="cb91-9"><a href="extra-ii-pbo-625-dimensions.html#cb91-9" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div>
+<div class="sourceCode" id="cb92"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb92-1"><a href="extra-ii-pbo-625-dimensions.html#cb92-1" aria-hidden="true" tabindex="-1"></a>irt2pl <span class="ot">&lt;-</span> <span class="fu">cmdstan_model</span>(<span class="st">&#39;models/irt2pl.stan&#39;</span>) </span>
+<span id="cb92-2"><a href="extra-ii-pbo-625-dimensions.html#cb92-2" aria-hidden="true" tabindex="-1"></a>fit_pbo <span class="ot">&lt;-</span> irt2pl<span class="sc">$</span><span class="fu">sample</span>(</span>
+<span id="cb92-3"><a href="extra-ii-pbo-625-dimensions.html#cb92-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">data=</span> pbo_standata,</span>
+<span id="cb92-4"><a href="extra-ii-pbo-625-dimensions.html#cb92-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">seed =</span> seed,</span>
+<span id="cb92-5"><a href="extra-ii-pbo-625-dimensions.html#cb92-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">chains =</span> <span class="dv">4</span>,</span>
+<span id="cb92-6"><a href="extra-ii-pbo-625-dimensions.html#cb92-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">iter_sampling =</span> <span class="dv">4000</span>,</span>
+<span id="cb92-7"><a href="extra-ii-pbo-625-dimensions.html#cb92-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">parallel_chains =</span> <span class="dv">4</span>,</span>
+<span id="cb92-8"><a href="extra-ii-pbo-625-dimensions.html#cb92-8" aria-hidden="true" tabindex="-1"></a>  <span class="at">max_treedepth =</span> <span class="dv">15</span></span>
+<span id="cb92-9"><a href="extra-ii-pbo-625-dimensions.html#cb92-9" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb92-10"><a href="extra-ii-pbo-625-dimensions.html#cb92-10" aria-hidden="true" tabindex="-1"></a>fit_pbo<span class="sc">$</span><span class="fu">save_object</span>(<span class="at">file=</span><span class="st">&#39;fitted/pbo625.RDS&#39;</span>)</span></code></pre></div>
+<p>To load the fitted model to save time in compiling this document</p>
+<div class="sourceCode" id="cb93"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb93-1"><a href="extra-ii-pbo-625-dimensions.html#cb93-1" aria-hidden="true" tabindex="-1"></a>fit_pbo<span class="ot">&lt;-</span><span class="fu">readRDS</span>(<span class="st">&#39;fitted/pbo625.RDS&#39;</span>)</span></code></pre></div>
+</div>
+<div id="diagnostics-3" class="section level2" number="7.3">
+<h2><span class="header-section-number">7.3</span> Diagnostics</h2>
+<p>Getting the draws from the posterior</p>
+<div class="sourceCode" id="cb94"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb94-1"><a href="extra-ii-pbo-625-dimensions.html#cb94-1" aria-hidden="true" tabindex="-1"></a>draws_a <span class="ot">&lt;-</span> fit_pbo<span class="sc">$</span><span class="fu">draws</span>(<span class="st">&#39;a&#39;</span>)</span>
+<span id="cb94-2"><a href="extra-ii-pbo-625-dimensions.html#cb94-2" aria-hidden="true" tabindex="-1"></a>draws_b <span class="ot">&lt;-</span> fit_pbo<span class="sc">$</span><span class="fu">draws</span>(<span class="st">&#39;b&#39;</span>)</span>
+<span id="cb94-3"><a href="extra-ii-pbo-625-dimensions.html#cb94-3" aria-hidden="true" tabindex="-1"></a>draws_theta <span class="ot">&lt;-</span> fit_pbo<span class="sc">$</span><span class="fu">draws</span>(<span class="st">&#39;theta&#39;</span>)</span></code></pre></div>
+<div id="traceplots-3" class="section level3" number="7.3.1">
+<h3><span class="header-section-number">7.3.1</span> Traceplots</h3>
+<div class="sourceCode" id="cb95"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb95-1"><a href="extra-ii-pbo-625-dimensions.html#cb95-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mcmc_trace</span>(draws_a)</span></code></pre></div>
+<p><img src="evo-irt_files/figure-html/unnamed-chunk-86-1.png" width="672" /></p>
+<div class="sourceCode" id="cb96"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb96-1"><a href="extra-ii-pbo-625-dimensions.html#cb96-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mcmc_trace</span>(draws_b)</span></code></pre></div>
+<p><img src="evo-irt_files/figure-html/unnamed-chunk-87-1.png" width="672" /></p>
+<div class="sourceCode" id="cb97"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb97-1"><a href="extra-ii-pbo-625-dimensions.html#cb97-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mcmc_trace</span>(draws_theta)</span></code></pre></div>
+<p><img src="evo-irt_files/figure-html/unnamed-chunk-88-1.png" width="672" /></p>
+</div>
+</div>
+<div id="results-3" class="section level2" number="7.4">
+<h2><span class="header-section-number">7.4</span> Results</h2>
+<div class="sourceCode" id="cb98"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb98-1"><a href="extra-ii-pbo-625-dimensions.html#cb98-1" aria-hidden="true" tabindex="-1"></a>fit_summary_a_b <span class="ot">&lt;-</span> fit_pbo<span class="sc">$</span><span class="fu">summary</span>(<span class="fu">c</span>(<span class="st">&#39;a&#39;</span>,<span class="st">&#39;b&#39;</span>))</span>
+<span id="cb98-2"><a href="extra-ii-pbo-625-dimensions.html#cb98-2" aria-hidden="true" tabindex="-1"></a>fit_summary_a <span class="ot">&lt;-</span> fit_pbo<span class="sc">$</span><span class="fu">summary</span>(<span class="fu">c</span>(<span class="st">&#39;a&#39;</span>))</span>
+<span id="cb98-3"><a href="extra-ii-pbo-625-dimensions.html#cb98-3" aria-hidden="true" tabindex="-1"></a>fit_summary_b <span class="ot">&lt;-</span> fit_pbo<span class="sc">$</span><span class="fu">summary</span>(<span class="fu">c</span>(<span class="st">&#39;b&#39;</span>))</span>
+<span id="cb98-4"><a href="extra-ii-pbo-625-dimensions.html#cb98-4" aria-hidden="true" tabindex="-1"></a>fit_summary_theta <span class="ot">&lt;-</span> fit_pbo<span class="sc">$</span><span class="fu">summary</span>(<span class="fu">c</span>(<span class="st">&#39;theta&#39;</span>))</span></code></pre></div>
+<div id="difficulty-and-discrimination-3" class="section level3" number="7.4.1">
+<h3><span class="header-section-number">7.4.1</span> Difficulty and discrimination</h3>
+<p>Table for the benchmark functions</p>
+<div class="sourceCode" id="cb99"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb99-1"><a href="extra-ii-pbo-625-dimensions.html#cb99-1" aria-hidden="true" tabindex="-1"></a>table_benchmarks <span class="ot">&lt;-</span> fit_summary_a_b <span class="sc">%&gt;%</span> </span>
+<span id="cb99-2"><a href="extra-ii-pbo-625-dimensions.html#cb99-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="st">&#39;Benchmark ID&#39;</span><span class="ot">=</span>variable, </span>
+<span id="cb99-3"><a href="extra-ii-pbo-625-dimensions.html#cb99-3" aria-hidden="true" tabindex="-1"></a>         <span class="at">Median=</span>median,</span>
+<span id="cb99-4"><a href="extra-ii-pbo-625-dimensions.html#cb99-4" aria-hidden="true" tabindex="-1"></a>         <span class="st">&#39;CI 5%&#39;</span><span class="ot">=</span>q5,</span>
+<span id="cb99-5"><a href="extra-ii-pbo-625-dimensions.html#cb99-5" aria-hidden="true" tabindex="-1"></a>         <span class="st">&#39;CI 95%&#39;</span><span class="ot">=</span>q95)</span>
+<span id="cb99-6"><a href="extra-ii-pbo-625-dimensions.html#cb99-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb99-7"><a href="extra-ii-pbo-625-dimensions.html#cb99-7" aria-hidden="true" tabindex="-1"></a>table_benchmarks<span class="sc">$</span><span class="st">&#39;Benchmark ID&#39;</span><span class="ot">&lt;-</span><span class="fu">rep</span>(benchmarks,<span class="dv">2</span>)</span>
+<span id="cb99-8"><a href="extra-ii-pbo-625-dimensions.html#cb99-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb99-9"><a href="extra-ii-pbo-625-dimensions.html#cb99-9" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(table_benchmarks,</span>
+<span id="cb99-10"><a href="extra-ii-pbo-625-dimensions.html#cb99-10" aria-hidden="true" tabindex="-1"></a>      <span class="at">caption=</span><span class="st">&#39;Summary values of the discrimination and difficulty level parameters for the PBO benchmarks&#39;</span>, </span>
+<span id="cb99-11"><a href="extra-ii-pbo-625-dimensions.html#cb99-11" aria-hidden="true" tabindex="-1"></a>      <span class="at">booktabs=</span>T,</span>
+<span id="cb99-12"><a href="extra-ii-pbo-625-dimensions.html#cb99-12" aria-hidden="true" tabindex="-1"></a>      <span class="at">digits =</span><span class="dv">3</span>,</span>
+<span id="cb99-13"><a href="extra-ii-pbo-625-dimensions.html#cb99-13" aria-hidden="true" tabindex="-1"></a>      <span class="at">format=</span><span class="st">&#39;html&#39;</span>,</span>
+<span id="cb99-14"><a href="extra-ii-pbo-625-dimensions.html#cb99-14" aria-hidden="true" tabindex="-1"></a>      <span class="at">linesep =</span> <span class="st">&quot;&quot;</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb99-15"><a href="extra-ii-pbo-625-dimensions.html#cb99-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable_styling</span>() <span class="sc">%&gt;%</span> </span>
+<span id="cb99-16"><a href="extra-ii-pbo-625-dimensions.html#cb99-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pack_rows</span>(<span class="st">&quot;Discrimination value (a)&quot;</span>,<span class="dv">1</span>,<span class="dv">23</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb99-17"><a href="extra-ii-pbo-625-dimensions.html#cb99-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pack_rows</span>(<span class="st">&quot;Difficulty level (b)&quot;</span>,<span class="dv">23</span>,<span class="dv">46</span>)</span></code></pre></div>
+<table class="table" style="margin-left: auto; margin-right: auto;">
+<caption>
+<span id="tab:unnamed-chunk-90">Table 7.1: </span>Summary values of the discrimination and difficulty level parameters for the PBO benchmarks
+</caption>
+<thead>
+<tr>
+<th style="text-align:right;">
+Benchmark ID
+</th>
+<th style="text-align:right;">
+Median
+</th>
+<th style="text-align:right;">
+CI 5%
+</th>
+<th style="text-align:right;">
+CI 95%
+</th>
+</tr>
+</thead>
+<tbody>
+<tr grouplength="23">
+<td colspan="4" style="border-bottom: 1px solid;">
+<strong>Discrimination value (a)</strong>
+</td>
+</tr>
+<tr>
+<td style="text-align:right; padding-left:  2em;" indentlevel="1">
+1
+</td>
+<td style="text-align:right;">
+2.919
+</td>
+<td style="text-align:right;">
+1.210
+</td>
+<td style="text-align:right;">
+6.017
+</td>
+</tr>
+<tr>
+<td style="text-align:right; padding-left:  2em;" indentlevel="1">
+2
+</td>
+<td style="text-align:right;">
+4.455
+</td>
+<td style="text-align:right;">
+2.635
+</td>
+<td style="text-align:right;">
+7.121
+</td>
+</tr>
+<tr>
+<td style="text-align:right; padding-left:  2em;" indentlevel="1">
+3
+</td>
+<td style="text-align:right;">
+1.431
+</td>
+<td style="text-align:right;">
+0.775
+</td>
+<td style="text-align:right;">
+2.507
+</td>
+</tr>
+<tr>
+<td style="text-align:right; padding-left:  2em;" indentlevel="1">
+4
+</td>
+<td style="text-align:right;">
+2.936
+</td>
+<td style="text-align:right;">
+1.199
+</td>
+<td style="text-align:right;">
+6.089
+</td>
+</tr>
+<tr>
+<td style="text-align:right; padding-left:  2em;" indentlevel="1">
+5
+</td>
+<td style="text-align:right;">
+2.693
+</td>
+<td style="text-align:right;">
+1.115
+</td>
+<td style="text-align:right;">
+5.857
+</td>
+</tr>
+<tr>
+<td style="text-align:right; padding-left:  2em;" indentlevel="1">
+6
+</td>
+<td style="text-align:right;">
+2.679
+</td>
+<td style="text-align:right;">
+1.095
+</td>
+<td style="text-align:right;">
+5.898
+</td>
+</tr>
+<tr>
+<td style="text-align:right; padding-left:  2em;" indentlevel="1">
+7
+</td>
+<td style="text-align:right;">
+0.425
+</td>
+<td style="text-align:right;">
+0.258
+</td>
+<td style="text-align:right;">
+0.709
+</td>
+</tr>
+<tr>
+<td style="text-align:right; padding-left:  2em;" indentlevel="1">
+8
+</td>
+<td style="text-align:right;">
+1.402
+</td>
+<td style="text-align:right;">
+0.875
+</td>
+<td style="text-align:right;">
+2.193
+</td>
+</tr>
+<tr>
+<td style="text-align:right; padding-left:  2em;" indentlevel="1">
+9
+</td>
+<td style="text-align:right;">
+0.596
+</td>
+<td style="text-align:right;">
+0.271
+</td>
+<td style="text-align:right;">
+1.050
+</td>
+</tr>
+<tr>
+<td style="text-align:right; padding-left:  2em;" indentlevel="1">
+10
+</td>
+<td style="text-align:right;">
+0.160
+</td>
+<td style="text-align:right;">
+0.098
+</td>
+<td style="text-align:right;">
+0.259
+</td>
+</tr>
+<tr>
+<td style="text-align:right; padding-left:  2em;" indentlevel="1">
+11
+</td>
+<td style="text-align:right;">
+4.982
+</td>
+<td style="text-align:right;">
+2.801
+</td>
+<td style="text-align:right;">
+8.026
+</td>
+</tr>
+<tr>
+<td style="text-align:right; padding-left:  2em;" indentlevel="1">
+12
+</td>
+<td style="text-align:right;">
+5.966
+</td>
+<td style="text-align:right;">
+3.669
+</td>
+<td style="text-align:right;">
+9.031
+</td>
+</tr>
+<tr>
+<td style="text-align:right; padding-left:  2em;" indentlevel="1">
+13
+</td>
+<td style="text-align:right;">
+2.267
+</td>
+<td style="text-align:right;">
+1.229
+</td>
+<td style="text-align:right;">
+3.941
+</td>
+</tr>
+<tr>
+<td style="text-align:right; padding-left:  2em;" indentlevel="1">
+14
+</td>
+<td style="text-align:right;">
+0.429
+</td>
+<td style="text-align:right;">
+0.261
+</td>
+<td style="text-align:right;">
+0.713
+</td>
+</tr>
+<tr>
+<td style="text-align:right; padding-left:  2em;" indentlevel="1">
+15
+</td>
+<td style="text-align:right;">
+4.119
+</td>
+<td style="text-align:right;">
+2.726
+</td>
+<td style="text-align:right;">
+6.184
+</td>
+</tr>
+<tr>
+<td style="text-align:right; padding-left:  2em;" indentlevel="1">
+16
+</td>
+<td style="text-align:right;">
+4.124
+</td>
+<td style="text-align:right;">
+2.717
+</td>
+<td style="text-align:right;">
+6.154
+</td>
+</tr>
+<tr>
+<td style="text-align:right; padding-left:  2em;" indentlevel="1">
+17
+</td>
+<td style="text-align:right;">
+1.154
+</td>
+<td style="text-align:right;">
+0.507
+</td>
+<td style="text-align:right;">
+2.025
+</td>
+</tr>
+<tr>
+<td style="text-align:right; padding-left:  2em;" indentlevel="1">
+18
+</td>
+<td style="text-align:right;">
+0.430
+</td>
+<td style="text-align:right;">
+0.261
+</td>
+<td style="text-align:right;">
+0.714
+</td>
+</tr>
+<tr>
+<td style="text-align:right; padding-left:  2em;" indentlevel="1">
+19
+</td>
+<td style="text-align:right;">
+0.474
+</td>
+<td style="text-align:right;">
+0.204
+</td>
+<td style="text-align:right;">
+0.851
+</td>
+</tr>
+<tr>
+<td style="text-align:right; padding-left:  2em;" indentlevel="1">
+20
+</td>
+<td style="text-align:right;">
+0.833
+</td>
+<td style="text-align:right;">
+0.506
+</td>
+<td style="text-align:right;">
+1.272
+</td>
+</tr>
+<tr>
+<td style="text-align:right; padding-left:  2em;" indentlevel="1">
+21
+</td>
+<td style="text-align:right;">
+0.387
+</td>
+<td style="text-align:right;">
+0.149
+</td>
+<td style="text-align:right;">
+0.698
+</td>
+</tr>
+<tr>
+<td style="text-align:right; padding-left:  2em;" indentlevel="1">
+22
+</td>
+<td style="text-align:right;">
+0.355
+</td>
+<td style="text-align:right;">
+0.207
+</td>
+<td style="text-align:right;">
+0.605
+</td>
+</tr>
+<tr grouplength="24">
+<td colspan="4" style="border-bottom: 1px solid;">
+<strong>Difficulty level (b)</strong>
+</td>
+</tr>
+<tr>
+<td style="text-align:right; padding-left:  2em;" indentlevel="2">
+23
+</td>
+<td style="text-align:right;">
+0.507
+</td>
+<td style="text-align:right;">
+0.250
+</td>
+<td style="text-align:right;">
+0.873
+</td>
+</tr>
+<tr>
+<td style="text-align:right; padding-left:  2em;" indentlevel="1">
+1
+</td>
+<td style="text-align:right;">
+-3.133
+</td>
+<td style="text-align:right;">
+-4.765
+</td>
+<td style="text-align:right;">
+-1.961
+</td>
+</tr>
+<tr>
+<td style="text-align:right; padding-left:  2em;" indentlevel="1">
+2
+</td>
+<td style="text-align:right;">
+-1.601
+</td>
+<td style="text-align:right;">
+-2.543
+</td>
+<td style="text-align:right;">
+-0.650
+</td>
+</tr>
+<tr>
+<td style="text-align:right; padding-left:  2em;" indentlevel="1">
+3
+</td>
+<td style="text-align:right;">
+-3.031
+</td>
+<td style="text-align:right;">
+-4.616
+</td>
+<td style="text-align:right;">
+-1.801
+</td>
+</tr>
+<tr>
+<td style="text-align:right; padding-left:  2em;" indentlevel="1">
+4
+</td>
+<td style="text-align:right;">
+-3.133
+</td>
+<td style="text-align:right;">
+-4.780
+</td>
+<td style="text-align:right;">
+-1.973
+</td>
+</tr>
+<tr>
+<td style="text-align:right; padding-left:  2em;" indentlevel="1">
+5
+</td>
+<td style="text-align:right;">
+-3.522
+</td>
+<td style="text-align:right;">
+-5.524
+</td>
+<td style="text-align:right;">
+-2.213
+</td>
+</tr>
+<tr>
+<td style="text-align:right; padding-left:  2em;" indentlevel="1">
+6
+</td>
+<td style="text-align:right;">
+-3.531
+</td>
+<td style="text-align:right;">
+-5.666
+</td>
+<td style="text-align:right;">
+-2.218
+</td>
+</tr>
+<tr>
+<td style="text-align:right; padding-left:  2em;" indentlevel="1">
+7
+</td>
+<td style="text-align:right;">
+5.279
+</td>
+<td style="text-align:right;">
+3.149
+</td>
+<td style="text-align:right;">
+8.293
+</td>
+</tr>
+<tr>
+<td style="text-align:right; padding-left:  2em;" indentlevel="1">
+8
+</td>
+<td style="text-align:right;">
+-1.929
+</td>
+<td style="text-align:right;">
+-3.020
+</td>
+<td style="text-align:right;">
+-0.898
+</td>
+</tr>
+<tr>
+<td style="text-align:right; padding-left:  2em;" indentlevel="1">
+9
+</td>
+<td style="text-align:right;">
+-1.334
+</td>
+<td style="text-align:right;">
+-2.901
+</td>
+<td style="text-align:right;">
+-0.219
+</td>
+</tr>
+<tr>
+<td style="text-align:right; padding-left:  2em;" indentlevel="1">
+10
+</td>
+<td style="text-align:right;">
+6.256
+</td>
+<td style="text-align:right;">
+3.759
+</td>
+<td style="text-align:right;">
+9.466
+</td>
+</tr>
+<tr>
+<td style="text-align:right; padding-left:  2em;" indentlevel="1">
+11
+</td>
+<td style="text-align:right;">
+-2.276
+</td>
+<td style="text-align:right;">
+-3.269
+</td>
+<td style="text-align:right;">
+-1.288
+</td>
+</tr>
+<tr>
+<td style="text-align:right; padding-left:  2em;" indentlevel="1">
+12
+</td>
+<td style="text-align:right;">
+-2.132
+</td>
+<td style="text-align:right;">
+-3.109
+</td>
+<td style="text-align:right;">
+-1.159
+</td>
+</tr>
+<tr>
+<td style="text-align:right; padding-left:  2em;" indentlevel="1">
+13
+</td>
+<td style="text-align:right;">
+-2.599
+</td>
+<td style="text-align:right;">
+-3.765
+</td>
+<td style="text-align:right;">
+-1.529
+</td>
+</tr>
+<tr>
+<td style="text-align:right; padding-left:  2em;" indentlevel="1">
+14
+</td>
+<td style="text-align:right;">
+5.439
+</td>
+<td style="text-align:right;">
+3.279
+</td>
+<td style="text-align:right;">
+8.445
+</td>
+</tr>
+<tr>
+<td style="text-align:right; padding-left:  2em;" indentlevel="1">
+15
+</td>
+<td style="text-align:right;">
+-1.146
+</td>
+<td style="text-align:right;">
+-2.068
+</td>
+<td style="text-align:right;">
+-0.220
+</td>
+</tr>
+<tr>
+<td style="text-align:right; padding-left:  2em;" indentlevel="1">
+16
+</td>
+<td style="text-align:right;">
+-1.142
+</td>
+<td style="text-align:right;">
+-2.083
+</td>
+<td style="text-align:right;">
+-0.220
+</td>
+</tr>
+<tr>
+<td style="text-align:right; padding-left:  2em;" indentlevel="1">
+17
+</td>
+<td style="text-align:right;">
+1.434
+</td>
+<td style="text-align:right;">
+0.381
+</td>
+<td style="text-align:right;">
+2.766
+</td>
+</tr>
+<tr>
+<td style="text-align:right; padding-left:  2em;" indentlevel="1">
+18
+</td>
+<td style="text-align:right;">
+5.402
+</td>
+<td style="text-align:right;">
+3.274
+</td>
+<td style="text-align:right;">
+8.395
+</td>
+</tr>
+<tr>
+<td style="text-align:right; padding-left:  2em;" indentlevel="1">
+19
+</td>
+<td style="text-align:right;">
+1.347
+</td>
+<td style="text-align:right;">
+0.176
+</td>
+<td style="text-align:right;">
+3.052
+</td>
+</tr>
+<tr>
+<td style="text-align:right; padding-left:  2em;" indentlevel="1">
+20
+</td>
+<td style="text-align:right;">
+-0.323
+</td>
+<td style="text-align:right;">
+-1.295
+</td>
+<td style="text-align:right;">
+0.624
+</td>
+</tr>
+<tr>
+<td style="text-align:right; padding-left:  2em;" indentlevel="1">
+21
+</td>
+<td style="text-align:right;">
+-1.083
+</td>
+<td style="text-align:right;">
+-2.847
+</td>
+<td style="text-align:right;">
+0.136
+</td>
+</tr>
+<tr>
+<td style="text-align:right; padding-left:  2em;" indentlevel="1">
+22
+</td>
+<td style="text-align:right;">
+4.730
+</td>
+<td style="text-align:right;">
+2.659
+</td>
+<td style="text-align:right;">
+7.668
+</td>
+</tr>
+<tr>
+<td style="text-align:right; padding-left:  2em;" indentlevel="1">
+23
+</td>
+<td style="text-align:right;">
+2.017
+</td>
+<td style="text-align:right;">
+0.748
+</td>
+<td style="text-align:right;">
+3.890
+</td>
+</tr>
+</tbody>
+</table>
+<div class="sourceCode" id="cb100"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb100-1"><a href="extra-ii-pbo-625-dimensions.html#cb100-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mcmc_intervals</span>(draws_a) <span class="sc">+</span></span>
+<span id="cb100-2"><a href="extra-ii-pbo-625-dimensions.html#cb100-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_discrete</span>(<span class="at">labels=</span>benchmarks)<span class="sc">+</span></span>
+<span id="cb100-3"><a href="extra-ii-pbo-625-dimensions.html#cb100-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x=</span><span class="st">&#39;Discrimination parameter (a)&#39;</span>,</span>
+<span id="cb100-4"><a href="extra-ii-pbo-625-dimensions.html#cb100-4" aria-hidden="true" tabindex="-1"></a>       <span class="at">y=</span><span class="st">&#39;Benchmark function ID&#39;</span>,</span>
+<span id="cb100-5"><a href="extra-ii-pbo-625-dimensions.html#cb100-5" aria-hidden="true" tabindex="-1"></a>       <span class="at">title=</span><span class="st">&#39;Discrimination parameter distribution (PBO)&#39;</span>)</span></code></pre></div>
+<pre><code>## Scale for &#39;y&#39; is already present. Adding another scale for &#39;y&#39;, which will
+## replace the existing scale.</code></pre>
+<p><img src="evo-irt_files/figure-html/unnamed-chunk-91-1.png" width="672" /></p>
+<div class="sourceCode" id="cb102"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb102-1"><a href="extra-ii-pbo-625-dimensions.html#cb102-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mcmc_intervals</span>(draws_b) <span class="sc">+</span></span>
+<span id="cb102-2"><a href="extra-ii-pbo-625-dimensions.html#cb102-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_discrete</span>(<span class="at">labels=</span>benchmarks)<span class="sc">+</span></span>
+<span id="cb102-3"><a href="extra-ii-pbo-625-dimensions.html#cb102-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x=</span><span class="st">&#39;Difficulty level parameter (b)&#39;</span>,</span>
+<span id="cb102-4"><a href="extra-ii-pbo-625-dimensions.html#cb102-4" aria-hidden="true" tabindex="-1"></a>       <span class="at">y=</span><span class="st">&#39;Benchmark function ID&#39;</span>,</span>
+<span id="cb102-5"><a href="extra-ii-pbo-625-dimensions.html#cb102-5" aria-hidden="true" tabindex="-1"></a>       <span class="at">title=</span><span class="st">&#39;Difficulty level parameter distribution (PBO)&#39;</span>)</span></code></pre></div>
+<pre><code>## Scale for &#39;y&#39; is already present. Adding another scale for &#39;y&#39;, which will
+## replace the existing scale.</code></pre>
+<p><img src="evo-irt_files/figure-html/unnamed-chunk-92-1.png" width="672" /></p>
+</div>
+<div id="ability-3" class="section level3" number="7.4.2">
+<h3><span class="header-section-number">7.4.2</span> Ability</h3>
+<p>Creating a table</p>
+<div class="sourceCode" id="cb104"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb104-1"><a href="extra-ii-pbo-625-dimensions.html#cb104-1" aria-hidden="true" tabindex="-1"></a>table_algorithms <span class="ot">&lt;-</span> fit_summary_theta <span class="sc">%&gt;%</span> </span>
+<span id="cb104-2"><a href="extra-ii-pbo-625-dimensions.html#cb104-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="at">Algorithms=</span>variable, </span>
+<span id="cb104-3"><a href="extra-ii-pbo-625-dimensions.html#cb104-3" aria-hidden="true" tabindex="-1"></a>         <span class="at">Median=</span>median,</span>
+<span id="cb104-4"><a href="extra-ii-pbo-625-dimensions.html#cb104-4" aria-hidden="true" tabindex="-1"></a>         <span class="st">&#39;CI 5%&#39;</span><span class="ot">=</span>q5,</span>
+<span id="cb104-5"><a href="extra-ii-pbo-625-dimensions.html#cb104-5" aria-hidden="true" tabindex="-1"></a>         <span class="st">&#39;CI 95%&#39;</span><span class="ot">=</span>q95)</span>
+<span id="cb104-6"><a href="extra-ii-pbo-625-dimensions.html#cb104-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb104-7"><a href="extra-ii-pbo-625-dimensions.html#cb104-7" aria-hidden="true" tabindex="-1"></a>table_algorithms<span class="sc">$</span>Algorithms <span class="ot">&lt;-</span> algorithms</span>
+<span id="cb104-8"><a href="extra-ii-pbo-625-dimensions.html#cb104-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb104-9"><a href="extra-ii-pbo-625-dimensions.html#cb104-9" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(table_algorithms,</span>
+<span id="cb104-10"><a href="extra-ii-pbo-625-dimensions.html#cb104-10" aria-hidden="true" tabindex="-1"></a>      <span class="at">caption=</span><span class="st">&#39;Summary values of the ability level of the algorithms (PBO)&#39;</span>, </span>
+<span id="cb104-11"><a href="extra-ii-pbo-625-dimensions.html#cb104-11" aria-hidden="true" tabindex="-1"></a>      <span class="at">booktabs=</span>T,</span>
+<span id="cb104-12"><a href="extra-ii-pbo-625-dimensions.html#cb104-12" aria-hidden="true" tabindex="-1"></a>      <span class="at">digits =</span><span class="dv">3</span>,</span>
+<span id="cb104-13"><a href="extra-ii-pbo-625-dimensions.html#cb104-13" aria-hidden="true" tabindex="-1"></a>      <span class="at">format=</span><span class="st">&#39;html&#39;</span>,</span>
+<span id="cb104-14"><a href="extra-ii-pbo-625-dimensions.html#cb104-14" aria-hidden="true" tabindex="-1"></a>      <span class="at">linesep =</span> <span class="st">&quot;&quot;</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb104-15"><a href="extra-ii-pbo-625-dimensions.html#cb104-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable_styling</span>() </span></code></pre></div>
+<table class="table" style="margin-left: auto; margin-right: auto;">
+<caption>
+<span id="tab:unnamed-chunk-93">Table 7.2: </span>Summary values of the ability level of the algorithms (PBO)
+</caption>
+<thead>
+<tr>
+<th style="text-align:left;">
+Algorithms
+</th>
+<th style="text-align:right;">
+Median
+</th>
+<th style="text-align:right;">
+CI 5%
+</th>
+<th style="text-align:right;">
+CI 95%
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+(1+(λ,λ)) GA
+</td>
+<td style="text-align:right;">
+-1.371
+</td>
+<td style="text-align:right;">
+-2.306
+</td>
+<td style="text-align:right;">
+-0.437
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+(1+1) EA_&gt;0
+</td>
+<td style="text-align:right;">
+2.184
+</td>
+<td style="text-align:right;">
+1.027
+</td>
+<td style="text-align:right;">
+3.383
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+(1+1) fGA
+</td>
+<td style="text-align:right;">
+0.139
+</td>
+<td style="text-align:right;">
+-0.831
+</td>
+<td style="text-align:right;">
+1.150
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+(1+10) EA_{r/2,2r}
+</td>
+<td style="text-align:right;">
+0.865
+</td>
+<td style="text-align:right;">
+-0.177
+</td>
+<td style="text-align:right;">
+1.949
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+(1+10) EA_&gt;0
+</td>
+<td style="text-align:right;">
+0.340
+</td>
+<td style="text-align:right;">
+-0.634
+</td>
+<td style="text-align:right;">
+1.346
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+(1+10) EA_logNormal
+</td>
+<td style="text-align:right;">
+0.330
+</td>
+<td style="text-align:right;">
+-0.652
+</td>
+<td style="text-align:right;">
+1.345
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+(1+10) EA_normalized
+</td>
+<td style="text-align:right;">
+0.853
+</td>
+<td style="text-align:right;">
+-0.177
+</td>
+<td style="text-align:right;">
+1.926
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+(1+10) EA_var_ctrl
+</td>
+<td style="text-align:right;">
+0.625
+</td>
+<td style="text-align:right;">
+-0.384
+</td>
+<td style="text-align:right;">
+1.709
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+(30,30) vGA
+</td>
+<td style="text-align:right;">
+-2.402
+</td>
+<td style="text-align:right;">
+-3.382
+</td>
+<td style="text-align:right;">
+-1.426
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+EDA
+</td>
+<td style="text-align:right;">
+-1.643
+</td>
+<td style="text-align:right;">
+-2.587
+</td>
+<td style="text-align:right;">
+-0.694
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+gHC
+</td>
+<td style="text-align:right;">
+-0.629
+</td>
+<td style="text-align:right;">
+-1.557
+</td>
+<td style="text-align:right;">
+0.302
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+RLS
+</td>
+<td style="text-align:right;">
+0.935
+</td>
+<td style="text-align:right;">
+-0.312
+</td>
+<td style="text-align:right;">
+2.158
+</td>
+</tr>
+</tbody>
+</table>
+<div class="sourceCode" id="cb105"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb105-1"><a href="extra-ii-pbo-625-dimensions.html#cb105-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mcmc_intervals</span>(draws_theta) <span class="sc">+</span></span>
+<span id="cb105-2"><a href="extra-ii-pbo-625-dimensions.html#cb105-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_discrete</span>(<span class="at">labels=</span>algorithms)<span class="sc">+</span></span>
+<span id="cb105-3"><a href="extra-ii-pbo-625-dimensions.html#cb105-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x=</span><span class="fu">unname</span>(<span class="fu">TeX</span>(<span class="st">&quot;Ability level ($</span><span class="sc">\\</span><span class="st">theta$)&quot;</span>)),</span>
+<span id="cb105-4"><a href="extra-ii-pbo-625-dimensions.html#cb105-4" aria-hidden="true" tabindex="-1"></a>       <span class="at">y=</span><span class="st">&#39;Algorithm&#39;</span>,</span>
+<span id="cb105-5"><a href="extra-ii-pbo-625-dimensions.html#cb105-5" aria-hidden="true" tabindex="-1"></a>       <span class="at">title=</span><span class="st">&#39;Ability level parameter distribution (PBO)&#39;</span>)</span></code></pre></div>
+<pre><code>## Scale for &#39;y&#39; is already present. Adding another scale for &#39;y&#39;, which will
+## replace the existing scale.</code></pre>
+<p><img src="evo-irt_files/figure-html/unnamed-chunk-94-1.png" width="672" /></p>
+</div>
+<div id="item-information-4" class="section level3" number="7.4.3">
+<h3><span class="header-section-number">7.4.3</span> Item information</h3>
+<p>We will use the same functions from the BBOB case study</p>
+<p>Creating a single data frame</p>
+<div class="sourceCode" id="cb107"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb107-1"><a href="extra-ii-pbo-625-dimensions.html#cb107-1" aria-hidden="true" tabindex="-1"></a>item_information_df <span class="ot">&lt;-</span> <span class="cn">NULL</span></span>
+<span id="cb107-2"><a href="extra-ii-pbo-625-dimensions.html#cb107-2" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span>(i <span class="cf">in</span> <span class="fu">seq</span>(<span class="dv">1</span><span class="sc">:</span><span class="fu">length</span>(benchmarks))){</span>
+<span id="cb107-3"><a href="extra-ii-pbo-625-dimensions.html#cb107-3" aria-hidden="true" tabindex="-1"></a>  a<span class="ot">&lt;-</span><span class="fu">as.matrix</span>(fit_summary_a[i,<span class="fu">c</span>(<span class="dv">3</span>,<span class="dv">6</span>,<span class="dv">7</span>)])</span>
+<span id="cb107-4"><a href="extra-ii-pbo-625-dimensions.html#cb107-4" aria-hidden="true" tabindex="-1"></a>  b<span class="ot">&lt;-</span><span class="fu">as.matrix</span>(fit_summary_b[i,<span class="fu">c</span>(<span class="dv">3</span>,<span class="dv">6</span>,<span class="dv">7</span>)])</span>
+<span id="cb107-5"><a href="extra-ii-pbo-625-dimensions.html#cb107-5" aria-hidden="true" tabindex="-1"></a>  iinfo <span class="ot">&lt;-</span> <span class="fu">item_info_with_intervals</span>(<span class="at">a=</span>a,<span class="at">b=</span>b,<span class="at">item =</span> i,<span class="at">thetamin =</span> <span class="sc">-</span><span class="dv">7</span>, <span class="at">thetamax =</span> <span class="dv">5</span>)</span>
+<span id="cb107-6"><a href="extra-ii-pbo-625-dimensions.html#cb107-6" aria-hidden="true" tabindex="-1"></a>  item_information_df <span class="ot">&lt;-</span> <span class="fu">rbind</span>(item_information_df,iinfo)</span>
+<span id="cb107-7"><a href="extra-ii-pbo-625-dimensions.html#cb107-7" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<p>Now we can create an information plot for every item</p>
+<div class="sourceCode" id="cb108"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb108-1"><a href="extra-ii-pbo-625-dimensions.html#cb108-1" aria-hidden="true" tabindex="-1"></a>item_information_df <span class="sc">%&gt;%</span> </span>
+<span id="cb108-2"><a href="extra-ii-pbo-625-dimensions.html#cb108-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_wider</span>(<span class="at">names_from =</span> <span class="st">&#39;pars&#39;</span>, <span class="at">values_from =</span> <span class="st">&#39;Information&#39;</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb108-3"><a href="extra-ii-pbo-625-dimensions.html#cb108-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x=</span>theta))<span class="sc">+</span></span>
+<span id="cb108-4"><a href="extra-ii-pbo-625-dimensions.html#cb108-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">y=</span>median), <span class="at">color=</span><span class="st">&#39;black&#39;</span>)<span class="sc">+</span></span>
+<span id="cb108-5"><a href="extra-ii-pbo-625-dimensions.html#cb108-5" aria-hidden="true" tabindex="-1"></a>    <span class="co"># geom_line(aes(y=q05), color=&#39;red&#39;, linetype=&#39;dashed&#39;)+</span></span>
+<span id="cb108-6"><a href="extra-ii-pbo-625-dimensions.html#cb108-6" aria-hidden="true" tabindex="-1"></a>    <span class="co"># geom_line(aes(y=q95), color=&#39;blue&#39;, linetype=&#39;dashed&#39;)+</span></span>
+<span id="cb108-7"><a href="extra-ii-pbo-625-dimensions.html#cb108-7" aria-hidden="true" tabindex="-1"></a>    <span class="fu">facet_wrap</span>(<span class="sc">~</span>item,</span>
+<span id="cb108-8"><a href="extra-ii-pbo-625-dimensions.html#cb108-8" aria-hidden="true" tabindex="-1"></a>               <span class="at">ncol=</span><span class="dv">4</span>) <span class="sc">+</span></span>
+<span id="cb108-9"><a href="extra-ii-pbo-625-dimensions.html#cb108-9" aria-hidden="true" tabindex="-1"></a>    <span class="fu">labs</span>(<span class="at">title=</span><span class="st">&#39;Item information curve (PBO)&#39;</span>,</span>
+<span id="cb108-10"><a href="extra-ii-pbo-625-dimensions.html#cb108-10" aria-hidden="true" tabindex="-1"></a>         <span class="at">x=</span><span class="fu">unname</span>(<span class="fu">TeX</span>(<span class="st">&quot;Ability ($</span><span class="sc">\\</span><span class="st">theta$)&quot;</span>)),</span>
+<span id="cb108-11"><a href="extra-ii-pbo-625-dimensions.html#cb108-11" aria-hidden="true" tabindex="-1"></a>         <span class="at">y=</span><span class="st">&#39;Information&#39;</span>,</span>
+<span id="cb108-12"><a href="extra-ii-pbo-625-dimensions.html#cb108-12" aria-hidden="true" tabindex="-1"></a>         <span class="at">color=</span><span class="st">&#39;Information interval&#39;</span>)<span class="sc">+</span></span>
+<span id="cb108-13"><a href="extra-ii-pbo-625-dimensions.html#cb108-13" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme_bw</span>() <span class="sc">+</span></span>
+<span id="cb108-14"><a href="extra-ii-pbo-625-dimensions.html#cb108-14" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">&#39;bottom&#39;</span>)</span></code></pre></div>
+<p><img src="evo-irt_files/figure-html/unnamed-chunk-96-1.png" width="672" /></p>
+</div>
+<div id="test-information-4" class="section level3" number="7.4.4">
+<h3><span class="header-section-number">7.4.4</span> Test information</h3>
+<p>We can also look at the test information. First, we need to pivot wider so we can sum the items</p>
+<div class="sourceCode" id="cb109"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb109-1"><a href="extra-ii-pbo-625-dimensions.html#cb109-1" aria-hidden="true" tabindex="-1"></a>test_information_df <span class="ot">&lt;-</span> item_information_df <span class="sc">%&gt;%</span> </span>
+<span id="cb109-2"><a href="extra-ii-pbo-625-dimensions.html#cb109-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_wider</span>(<span class="at">names_from =</span> <span class="st">&#39;item&#39;</span>, <span class="at">values_from =</span> <span class="st">&#39;Information&#39;</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb109-3"><a href="extra-ii-pbo-625-dimensions.html#cb109-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">TestInfo =</span> dplyr<span class="sc">::</span><span class="fu">select</span>(., <span class="sc">-</span>theta, <span class="sc">-</span>pars) <span class="sc">%&gt;%</span> <span class="fu">rowSums</span>()) <span class="sc">%&gt;%</span> </span>
+<span id="cb109-4"><a href="extra-ii-pbo-625-dimensions.html#cb109-4" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">select</span>(theta, pars, TestInfo)</span></code></pre></div>
+<p>Now that we have calculated the test parameters we can plot the test information</p>
+<p>First let’s get a horizontal line to show where the algorithms median ability lies</p>
+<div class="sourceCode" id="cb110"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb110-1"><a href="extra-ii-pbo-625-dimensions.html#cb110-1" aria-hidden="true" tabindex="-1"></a>alg_median <span class="ot">&lt;-</span> fit_summary_theta <span class="sc">%&gt;%</span> </span>
+<span id="cb110-2"><a href="extra-ii-pbo-625-dimensions.html#cb110-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">Algorithm=</span>algorithms) <span class="sc">%&gt;%</span> </span>
+<span id="cb110-3"><a href="extra-ii-pbo-625-dimensions.html#cb110-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(Algorithm, median) </span></code></pre></div>
+<div class="sourceCode" id="cb111"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb111-1"><a href="extra-ii-pbo-625-dimensions.html#cb111-1" aria-hidden="true" tabindex="-1"></a>test_information_df <span class="sc">%&gt;%</span> </span>
+<span id="cb111-2"><a href="extra-ii-pbo-625-dimensions.html#cb111-2" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">select</span>(theta, pars, TestInfo) <span class="sc">%&gt;%</span> </span>
+<span id="cb111-3"><a href="extra-ii-pbo-625-dimensions.html#cb111-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_wider</span>(<span class="at">names_from =</span> <span class="st">&#39;pars&#39;</span>, <span class="at">values_from =</span> <span class="st">&#39;TestInfo&#39;</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb111-4"><a href="extra-ii-pbo-625-dimensions.html#cb111-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x=</span>theta)) <span class="sc">+</span></span>
+<span id="cb111-5"><a href="extra-ii-pbo-625-dimensions.html#cb111-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">y=</span>median))<span class="sc">+</span></span>
+<span id="cb111-6"><a href="extra-ii-pbo-625-dimensions.html#cb111-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_vline</span>(<span class="at">data=</span>alg_median, <span class="fu">aes</span>(<span class="at">xintercept=</span>median,<span class="at">color=</span>Algorithm),<span class="at">linetype=</span><span class="st">&#39;dashed&#39;</span>)<span class="sc">+</span></span>
+<span id="cb111-7"><a href="extra-ii-pbo-625-dimensions.html#cb111-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb111-8"><a href="extra-ii-pbo-625-dimensions.html#cb111-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">title=</span><span class="st">&#39;Test Information Curve (PBO)&#39;</span>,</span>
+<span id="cb111-9"><a href="extra-ii-pbo-625-dimensions.html#cb111-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">x=</span><span class="fu">unname</span>(<span class="fu">TeX</span>(<span class="st">&quot;Ability ($</span><span class="sc">\\</span><span class="st">theta$)&quot;</span>)),</span>
+<span id="cb111-10"><a href="extra-ii-pbo-625-dimensions.html#cb111-10" aria-hidden="true" tabindex="-1"></a>    <span class="at">y=</span><span class="st">&#39;Test information&#39;</span>,</span>
+<span id="cb111-11"><a href="extra-ii-pbo-625-dimensions.html#cb111-11" aria-hidden="true" tabindex="-1"></a>    <span class="at">color=</span><span class="st">&#39;Algorithm median&#39;</span></span>
+<span id="cb111-12"><a href="extra-ii-pbo-625-dimensions.html#cb111-12" aria-hidden="true" tabindex="-1"></a>  )<span class="sc">+</span></span>
+<span id="cb111-13"><a href="extra-ii-pbo-625-dimensions.html#cb111-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>()<span class="sc">+</span></span>
+<span id="cb111-14"><a href="extra-ii-pbo-625-dimensions.html#cb111-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">guides</span>(<span class="at">color=</span><span class="fu">guide_legend</span>(<span class="at">nrow=</span><span class="dv">5</span>,<span class="at">byrow=</span><span class="cn">TRUE</span>))<span class="sc">+</span></span>
+<span id="cb111-15"><a href="extra-ii-pbo-625-dimensions.html#cb111-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">&#39;bottom&#39;</span>)</span></code></pre></div>
+<p><img src="evo-irt_files/figure-html/unnamed-chunk-99-1.png" width="672" /></p>
+
+</div>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="extra-i-bbob-2009-and-2019.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": null,
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

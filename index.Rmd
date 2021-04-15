@@ -1,0 +1,46 @@
+--- 
+title: 'Online appendix for the paper: "On the Assessment of Benchmark Suites for Algorithm Comparison"'
+author: "David Issa Mattos, Lucas Ruud, Jan Bosch and Helena Holmström Olsson."
+date: "`r Sys.Date()`"
+site: bookdown::bookdown_site
+documentclass: book
+output:
+  bookdown::gitbook: default
+bibliography: [book.bib]
+biblio-style: apalike
+link-citations: yes
+description: 'This is the online appendix for the paper: "On the Assessment of Benchmark Suites for Algorithm Comparison"'
+always_allow_html: true
+---
+
+```{r include=FALSE,message=F}
+# automatically create a bib database for R packages
+knitr::opts_chunk$set(cache=TRUE)
+library(tidyverse)
+library(knitr)
+library(posterior)
+library(bayesplot)
+library(kableExtra)
+library(latex2exp)
+library(cmdstanr)
+seed<-123
+set.seed(seed)
+```
+
+# Foreword
+
+This is the online appendix for the paper *"On the Assessment of Benchmark Suites for Algorithm Comparison"*. It contains a commented and reproducible code for all the analysis, tables and plots presented in the paper and additional content.
+
+The code used to generate this appendix is available at the repository: https://github.com/davidissamattos/evo-irt
+
+## Session info
+
+This appendix is compiled automatically and the following session information was used to generate this appendix:
+
+```{r}
+sessionInfo()
+```
+
+
+
+

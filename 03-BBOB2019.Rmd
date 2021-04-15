@@ -1,0 +1,271 @@
+# Case Study I: BBOB 2019
+
+## Importing the data
+
+To illustrate and make the analysis, we will the number of dimensions equal to 5 (since the benchmark functions are all scalable). To do an analysis with different dimensions just change the code here
+
+```{r message=F}
+d_bbob <- read_csv('data/bbob2019.csv') %>% 
+  select(algId, DIM, funcId, runs, succ, budget) %>% 
+  filter(DIM==5) %>%  
+  mutate(algId_index = as.integer(as.factor(algId)))
+
+#vector with the names in order
+benchmarks <- seq(1,24)
+algorithms <- levels(as.factor(d_bbob$algId))
+```
+
+## Preparing the Stan data
+
+Creating a list for Stan.
+```{r}
+bbob_standata <- list(
+  N = nrow(d_bbob),
+  y_succ = as.integer(d_bbob$succ),
+  N_tries = as.integer(d_bbob$runs),
+  p = d_bbob$algId_index,
+  Np = as.integer(length(unique(d_bbob$algId_index))),
+  item = as.integer(d_bbob$funcId),
+  Nitem = as.integer(length(unique(d_bbob$funcId)))
+)
+```
+
+Calling the model with cmdstanr
+
+```{r eval=F}
+irt2pl <- cmdstan_model('models/irt2pl.stan') 
+fit_bbob <- irt2pl$sample(
+  data= bbob_standata,
+  chains = 4,
+  iter_sampling = 4000,
+  parallel_chains = 4,
+  max_treedepth = 15
+)
+fit_bbob$save_object(file='fitted/bbob5.RDS')
+```
+
+To load the fitted model (to save time in compiling this document)
+
+```{r}
+fit_bbob<-readRDS('fitted/bbob5.RDS')
+```
+
+## Diagnostics
+
+Getting the draws from the posterior
+
+```{r}
+draws_a <- fit_bbob$draws('a')
+draws_b <- fit_bbob$draws('b')
+draws_theta <- fit_bbob$draws('theta')
+```
+
+### Traceplots
+
+```{r}
+mcmc_trace(draws_a)
+```
+
+```{r}
+mcmc_trace(draws_b)
+```
+
+```{r}
+mcmc_trace(draws_theta)
+```
+
+### Rhat and Effective samples
+
+```{r}
+fit_bbob$summary() %>% 
+  kable(caption='Summary values fit of the model, including effective samples and Rhat', 
+      booktabs=T,
+      digits =3,
+      format='html') %>% 
+  kable_styling() %>% 
+  scroll_box()
+```
+
+
+## Results
+
+Let's get some summary descriptive statistics of the posterior
+```{r}
+fit_summary_a_b <- fit_bbob$summary(c('a','b'))
+fit_summary_a <- fit_bbob$summary(c('a'))
+fit_summary_b <- fit_bbob$summary(c('b'))
+fit_summary_theta <- fit_bbob$summary(c('theta'))
+```
+
+
+### Difficulty and discrimination
+
+Table for the benchmark functions
+
+```{r}
+table_benchmarks <- fit_summary_a_b %>% 
+  select('Benchmark ID'=variable, 
+         Median=median,
+         'CI 5%'=q5,
+         'CI 95%'=q95)
+
+table_benchmarks$'Benchmark ID'<-rep(benchmarks,2)
+
+kable(table_benchmarks,
+      caption='Summary values of the discrimination and difficulty level parameters for the BBOB benchmarks', 
+      booktabs=T,
+      digits =3,
+      format='html',
+      linesep = "") %>% 
+  kable_styling() %>% 
+  pack_rows("Discrimination value (a)",1,24) %>% 
+  pack_rows("Difficulty level (b)",25,48)
+```
+
+A more visual representation.
+```{r}
+mcmc_intervals(draws_a) +
+  scale_y_discrete(labels=benchmarks)+
+  labs(x='Discrimination parameter (a)',
+       y='Benchmark function ID',
+       title='Discrimination parameter distribution (BBOB)')
+```
+
+```{r}
+mcmc_intervals(draws_b) +
+  scale_y_discrete(labels=benchmarks)+
+  labs(x='Difficulty level parameter (b)',
+       y='Benchmark function ID',
+       title='Difficulty level parameter distribution (BBOB)')
+```
+
+
+### Ability
+
+Creating a table:
+
+```{r}
+table_algorithms <- fit_summary_theta %>% 
+  select(Algorithms=variable, 
+         Median=median,
+         'CI 5%'=q5,
+         'CI 95%'=q95)
+
+table_algorithms$Algorithms <- algorithms
+
+kable(table_algorithms,
+      caption='Summary values of the ability level of the algorithms (BBOB)',
+      booktabs=T,
+      digits =3,
+      format='html',
+      linesep = "") %>% 
+  kable_styling() 
+```
+
+A more visual representation.
+```{r}
+mcmc_intervals(draws_theta) +
+  scale_y_discrete(labels=algorithms)+
+  labs(x=unname(TeX("Ability level ($\\theta$)")),
+       y='Algorithm',
+       title='Ability level parameter distribution (BBOB)')
+```
+
+### Item information 
+
+First let's create a few helper functions to calculate the item information
+
+```{r}
+p_info <- function(a,b, theta){
+     return(exp(a*(theta-b))/(1+exp(a*(theta-b))))
+  }
+q_info <- function(a,b, theta){
+    return(1-p_info(a,b, theta))
+  }
+#a and b are a vector of 3 a[1] is lower q05 a[2] is median and a[3] is q95
+#return a data frame ready to be plottted
+item_info_with_intervals <- function(a,b,item, thetamin=-5, thetamax=5,step=0.1){
+  theta <- seq(from=thetamin, to=thetamax, by=step)
+  info_median <- a[1]^2*p_info(a[1],b[1],theta)*q_info(a[1],b[1],theta)
+  info_lower <- a[2]^2*p_info(a[2],b[2],theta)*q_info(a[2],b[2],theta)
+  info_higher <- a[3]^2*p_info(a[3],b[3],theta)*q_info(a[3],b[3],theta)
+  
+  out<- data.frame(Information= c(info_lower,info_median,info_higher),
+                   theta=c(theta,theta,theta),
+                   pars=c(rep('q05',length(theta)),
+                           rep('median',length(theta)),
+                           rep('q95',length(theta))),
+                   item=c(rep(item,length(theta)),
+                          rep(item,length(theta)),
+                          rep(item,length(theta))))
+  return(out)
+}
+```
+
+Creating a single data frame
+```{r}
+item_information_df <- NULL
+for(i in seq(1:length(benchmarks))){
+  a<-as.matrix(fit_summary_a[i,c(3,6,7)])
+  b<-as.matrix(fit_summary_b[i,c(3,6,7)])
+  iinfo <- item_info_with_intervals(a=a,b=b,item = i,thetamin = -7, thetamax = 5)
+  item_information_df <- rbind(item_information_df,iinfo)
+}
+
+```
+
+Now we can create an information plot for every item
+
+```{r}
+item_information_df %>% 
+  pivot_wider(names_from = 'pars', values_from = 'Information') %>% 
+  ggplot(aes(x=theta))+
+    geom_line(aes(y=median), color='black')+
+    facet_wrap(~item,
+               ncol=4) +
+    labs(title='Item information curve (BBOB)',
+         x=unname(TeX("Ability ($\\theta$)")),
+         y='Information',
+         color='Information interval')+
+    theme_bw() +
+    theme(legend.position = 'bottom')
+```
+
+### Test information
+
+We can also look at the test information. First, we need to pivot wider so we can sum the items
+
+```{r}
+test_information_df <- item_information_df %>% 
+  pivot_wider(names_from = 'item', values_from = 'Information') %>% 
+  mutate(TestInfo = dplyr::select(., -theta, -pars) %>% rowSums()) %>% 
+  dplyr::select(theta, pars, TestInfo)
+```
+
+Now that we have calculated the test parameters we can plot the test information
+
+First let's get a horizontal line to show where the algorithms median ability lies
+```{r}
+alg_median <- fit_summary_theta %>% 
+  mutate(Algorithm=algorithms) %>% 
+  select(Algorithm, median) 
+```
+
+
+```{r}
+test_information_df %>% 
+  dplyr::select(theta, pars, TestInfo) %>% 
+  pivot_wider(names_from = 'pars', values_from = 'TestInfo') %>% 
+  ggplot(aes(x=theta)) +
+  geom_line(aes(y=median))+
+  geom_vline(data=alg_median, aes(xintercept=median,color=Algorithm),linetype='dashed')+
+  labs(
+    title='Test Information Curve (BBOB)',
+    x=unname(TeX("Ability ($\\theta$)")),
+    y='Test information',
+    color='Algorithm median'
+  )+
+  theme_bw()+
+  guides(color=guide_legend(nrow=5,byrow=TRUE))+
+  theme(legend.position = 'bottom')
+```

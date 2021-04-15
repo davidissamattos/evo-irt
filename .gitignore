@@ -1,0 +1,14 @@
+.Rproj.user
+.Rhistory
+.RData
+.Ruserdata
+fitted/*
+data/BBOB/*
+data/BBOB2009/*
+data/IOHdata-master/*
+data/notupload/*
+models/irt2pl
+.DS_Store
+_bookdown_files/*
+submissions/*
+fitted/*

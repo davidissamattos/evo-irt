@@ -1,0 +1,241 @@
+# Case study II: PBO
+
+## Importing the data
+
+To illustrate and make the analysis we will use 5 as the number of dimensions for the benchmark functions
+
+```{r message=F}
+d_pbo <- read_csv('data/pbo.csv') %>% 
+  select(algId, DIM, funcId, runs, succ, budget) %>% 
+  filter(DIM==16) %>%
+  mutate(algId_index = as.integer(as.factor(algId)))
+
+#vector with the names in order
+benchmarks <- seq(1,23)
+algorithms <- levels(as.factor(d_pbo$algId))
+```
+
+## Preparing the Stan data
+
+```{r}
+pbo_standata <- list(
+  N = nrow(d_pbo),
+  y_succ = as.integer(d_pbo$succ),
+  N_tries = as.integer(d_pbo$runs),
+  p = d_pbo$algId_index,
+  Np = as.integer(length(unique(d_pbo$algId_index))),
+  item = as.integer(d_pbo$funcId),
+  Nitem = as.integer(length(unique(d_pbo$funcId)))
+)
+```
+
+```{r eval=F}
+irt2pl <- cmdstan_model('models/irt2pl.stan') 
+fit_pbo <- irt2pl$sample(
+  data= pbo_standata,
+  seed = seed,
+  chains = 4,
+  iter_sampling = 4000,
+  parallel_chains = 4,
+  max_treedepth = 15
+)
+fit_pbo$save_object(file='fitted/pbo16.RDS')
+```
+
+To load the fitted model to save time in compiling this document
+
+```{r}
+fit_pbo<-readRDS('fitted/pbo16.RDS')
+```
+
+## Diagnostics
+
+Getting the draws from the posterior
+
+```{r}
+draws_a <- fit_pbo$draws('a')
+draws_b <- fit_pbo$draws('b')
+draws_theta <- fit_pbo$draws('theta')
+```
+
+### Traceplots
+
+```{r}
+mcmc_trace(draws_a)
+```
+
+```{r}
+mcmc_trace(draws_b)
+```
+
+```{r}
+mcmc_trace(draws_theta)
+```
+
+### Rhat and Effective samples
+
+```{r}
+fit_pbo$summary() %>% 
+  kable(caption='Summary values fit of the model, including effective samples and Rhat', 
+      booktabs=T,
+      digits =3,
+      format='html') %>% 
+  kable_styling() %>% 
+  scroll_box()
+```
+
+
+## Results
+
+```{r}
+fit_summary_a_b <- fit_pbo$summary(c('a','b'))
+fit_summary_a <- fit_pbo$summary(c('a'))
+fit_summary_b <- fit_pbo$summary(c('b'))
+fit_summary_theta <- fit_pbo$summary(c('theta'))
+```
+
+### Difficulty and discrimination
+
+Table for the benchmark functions
+
+```{r}
+table_benchmarks <- fit_summary_a_b %>% 
+  select('Benchmark ID'=variable, 
+         Median=median,
+         'CI 5%'=q5,
+         'CI 95%'=q95)
+
+table_benchmarks$'Benchmark ID'<-rep(benchmarks,2)
+
+kable(table_benchmarks,
+      caption='Summary values of the discrimination and difficulty level parameters for the PBO benchmarks', 
+      booktabs=T,
+      digits =3,
+      format='html',
+      linesep = "") %>% 
+  kable_styling() %>% 
+  pack_rows("Discrimination value (a)",1,23) %>% 
+  pack_rows("Difficulty level (b)",23,46)
+```
+
+
+```{r}
+mcmc_intervals(draws_a) +
+  scale_y_discrete(labels=benchmarks)+
+  labs(x='Discrimination parameter (a)',
+       y='Benchmark function ID',
+       title='Discrimination parameter distribution (PBO)')
+```
+
+```{r}
+mcmc_intervals(draws_b) +
+  scale_y_discrete(labels=benchmarks)+
+  labs(x='Difficulty level parameter (b)',
+       y='Benchmark function ID',
+       title='Difficulty level parameter distribution (PBO)')
+```
+
+### Ability
+
+Creating a table 
+
+```{r}
+table_algorithms <- fit_summary_theta %>% 
+  select(Algorithms=variable, 
+         Median=median,
+         'CI 5%'=q5,
+         'CI 95%'=q95)
+
+table_algorithms$Algorithms <- algorithms
+
+kable(table_algorithms,
+      caption='Summary values of the ability level of the algorithms (PBO)', 
+      booktabs=T,
+      digits =3,
+      format='html',
+      linesep = "") %>% 
+  kable_styling() 
+```
+
+```{r}
+mcmc_intervals(draws_theta) +
+  scale_y_discrete(labels=algorithms)+
+  labs(x=unname(TeX("Ability level ($\\theta$)")),
+       y='Algorithm',
+       title='Ability level parameter distribution (PBO)')
+```
+
+### Item information 
+
+We will use the same functions from the BBOB case study
+
+Creating a single data frame
+```{r}
+item_information_df <- NULL
+for(i in seq(1:length(benchmarks))){
+  a<-as.matrix(fit_summary_a[i,c(3,6,7)])
+  b<-as.matrix(fit_summary_b[i,c(3,6,7)])
+  iinfo <- item_info_with_intervals(a=a,b=b,item = i,thetamin = -7, thetamax = 5)
+  item_information_df <- rbind(item_information_df,iinfo)
+}
+
+```
+
+Now we can create an information plot for every item
+
+```{r}
+item_information_df %>% 
+  pivot_wider(names_from = 'pars', values_from = 'Information') %>% 
+  ggplot(aes(x=theta))+
+    geom_line(aes(y=median), color='black')+
+    # geom_line(aes(y=q05), color='red', linetype='dashed')+
+    # geom_line(aes(y=q95), color='blue', linetype='dashed')+
+    facet_wrap(~item,
+               ncol=4) +
+    labs(title='Item information curve (PBO)',
+         x=unname(TeX("Ability ($\\theta$)")),
+         y='Information',
+         color='Information interval')+
+    theme_bw() +
+    theme(legend.position = 'bottom')
+```
+
+
+### Test information
+
+We can also look at the test information. First, we need to pivot wider so we can sum the items
+
+```{r}
+test_information_df <- item_information_df %>% 
+  pivot_wider(names_from = 'item', values_from = 'Information') %>% 
+  mutate(TestInfo = dplyr::select(., -theta, -pars) %>% rowSums()) %>% 
+  dplyr::select(theta, pars, TestInfo)
+```
+
+Now that we have calculated the test parameters we can plot the test information
+
+First let's get a horizontal line to show where the algorithms median ability lies
+```{r}
+alg_median <- fit_summary_theta %>% 
+  mutate(Algorithm=algorithms) %>% 
+  select(Algorithm, median) 
+```
+
+
+```{r}
+test_information_df %>% 
+  dplyr::select(theta, pars, TestInfo) %>% 
+  pivot_wider(names_from = 'pars', values_from = 'TestInfo') %>% 
+  ggplot(aes(x=theta)) +
+  geom_line(aes(y=median))+
+  geom_vline(data=alg_median, aes(xintercept=median,color=Algorithm),linetype='dashed')+
+  labs(
+    title='Test Information Curve (PBO)',
+    x=unname(TeX("Ability ($\\theta$)")),
+    y='Test information',
+    color='Algorithm median'
+  )+
+  theme_bw()+
+  guides(color=guide_legend(nrow=5,byrow=TRUE))+
+  theme(legend.position = 'bottom')
+```
