@@ -75,7 +75,7 @@ mcmc_trace(draws_theta)
 ### Rhat and Effective samples
 
 ```{r}
-fit_pbo$summary() %>% 
+fit_pbo$summary(c('a','b', 'theta')) %>% 
   kable(caption='Summary values fit of the model, including effective samples and Rhat', 
       booktabs=T,
       digits =3,
